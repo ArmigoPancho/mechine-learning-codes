@@ -6,7 +6,7 @@ from sklearn import neighbors
 
 # 读入外部数据
 data3 = pd.read_excel(io=r'data3.xlsx')   # pandas 更新到0.24即可
-'''
+
 # 1.查看数据的情况
 print(data3.shape)
 print(data3.dtypes)
@@ -24,11 +24,11 @@ print(data3.head())
 # 判断数据中是否存在重复数据
 print(data3.duplicated().any())
 
+'''
 需要说明的是，在使用duplicated“方法”对数据行作重复性判断时，会返回一个与原数据行数相同的序列（如果数据行没有重复，则对应False，否则对应True），为了得到最终的判断结果，需要再使用any“方法”（即序列中只要存在一个True，则返回True）。
-
 duplicated“方法”和drop_duplicates“方法”都有一个非常重要的参数，就是subset。
 默认情况下不设置该参数时，表示对数据的所有列进行重复性判断；如果需要按指定的变量做数据的重复性判断时，
-就可以使用该参数指定具体的变量列表。举例如下：
+就可以使用该参数指定具体的变量列表。举例如下：'''
 df = pd.DataFrame(dict(name = ['张三','李四','王二','张三','赵五','丁一','王二'],
                       gender = ['男','男','女','男','女','女','男'],
                       age = [29,25,27,29,21,22,27],
@@ -39,7 +39,7 @@ df.drop_duplicates()
 print(df)
 df.drop_duplicates(subset=['name','age'],inplace=True) # name、age一样就判为一样的数据
 print(df,'\n####################################')
-'''
+
 
 '''2.缺失值的简单处理有：删除法、替换法和插补法'''
 # 判断各变量中是否存在缺失值
